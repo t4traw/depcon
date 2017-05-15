@@ -1,8 +1,9 @@
 # Depcon
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/depcon`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/t4traw/depcon.svg?branch=master)](https://travis-ci.org/t4traw/depcon)
+[![Code Climate](https://codeclimate.com/github/t4traw/depcon/badges/gpa.svg)](https://codeclimate.com/github/t4traw/depcon)
 
-TODO: Delete this and the text above, and describe your gem
+よく使われる機種依存文字をよしなに変換してくれる`.depcon`(非破壊メソッド)と`.depcon!`(破壊メソッド)をStringクラスに追加します。
 
 ## Installation
 
@@ -12,25 +13,39 @@ Add this line to your application's Gemfile:
 gem 'depcon'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install depcon
-
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+foo = "㈱サンプルから℡がありました。「さきほど送った1㌻の項目№③ですが、20㍉ではなく20㌢が正しい数値になります。修正お願いします。」"
 
-## Development
+p foo.depcon # "(株)サンプルからTELがありました。「さきほど送った1ページの項目No.(3)ですが、20ミリではなく20センチが正しい数値になります。修正お願いします。」"
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+foo.depcon!
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+p foo # "(株)サンプルからTELがありました。「さきほど送った1ページの項目No.(3)ですが、20ミリではなく20センチが正しい数値になります。修正お願いします。」"
+```
+
+## Example
+
+```yml
+№: No.
+℡: TEL
+㊤: (上)
+㈱: (株)
+㍻: 平成
+㎜: mm
+㎏: kg
+㍉: ミリ
+㌢: センチ
+①: (1)
+⑳: (20)
+Ⅰ: I
+Ⅶ: VII
+Ⅹ: X
+```
+
+more [lib/dictionary.yml](https://github.com/t4traw/depcon/blob/master/lib/dictionary.yml)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/depcon.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/t4traw/depcon.

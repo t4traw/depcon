@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["t4traw"]
   spec.email         = ["t4traw@gmail.com"]
 
-  spec.summary       = %q{Winで使われている代表的な機種依存文字を変換するgem}
-  spec.description   = %q{Winで使われている代表的な機種依存文字を変換するgem}
+  spec.summary       = %q{よく使われる機種依存文字をプレーンテキストに変換するgem}
+  spec.description   = %q{よく使われる機種依存文字をプレーンテキストに変換するgem}
   spec.homepage      = "https://github.com/t4traw/depcon"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

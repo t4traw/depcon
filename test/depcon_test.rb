@@ -14,6 +14,10 @@ class DepconTest < Minitest::Test
     assert_equal expect_result, str.depcon
   end
 
+  def test_empty_string
+    assert_equal "", "".depcon
+  end
+
   def test_depcon_non_destructive_test
     str.depcon
     refute_equal expect_result, str
